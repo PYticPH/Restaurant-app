@@ -1,0 +1,88 @@
+body {
+  background-color: #f5f5f5;
+  margin: 0;
+  font-family:
+    smythe, Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+header,
+main {
+  width: 600px;
+  margin: 0 auto;
+}
+
+header {
+  background-image: url("./images/header.jpg");
+  background-size: cover;
+  background-position: center 68%;
+  color: #ffffff;
+  padding: 5px 50px 60px;
+  box-sizing: border-box;
+}
+
+main {
+  background-color: #ffffff;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin-bottom: 5px;
+  font-weight: 300;
+}
+
+header p {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #d2d2d2;
+  padding: 40px 0;
+}
+
+.menu-item-details {
+  margin-left: 20px;
+}
+
+.menu-item h2,
+.menu-item p {
+  margin: 5px 0;
+  font-weight: 300;
+}
+
+
+.menu-item-image {
+  font-size: 4rem;
+}
+
+.add-item {
+  margin: auto 0 auto auto;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+.item-ingredient {
+  color: #8b8b8b;
+  font-size: 1rem;
+}
+
+.item-price {
+  font-size: 1.2rem;
+}
+
+.add-item {
+  background-color: #ffffff;
+  color: #3c3c3c;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #8b8b8b;
+  border-radius: 50%;
+  font-size: 1.8rem;
+}
