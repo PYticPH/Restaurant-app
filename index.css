@@ -23,7 +23,7 @@ header {
 
 main {
   background-color: #ffffff;
-  padding: 0 40px;
+  padding: 0 40px 20px;
   box-sizing: border-box;
 }
 
@@ -73,7 +73,12 @@ h2 {
   font-size: 1rem;
 }
 
-.item-price {
+
+.item-name {
+  font-size: 1.8rem;
+}
+
+.item-price, .total {
   font-size: 1.2rem;
 }
 
@@ -85,4 +90,64 @@ h2 {
   border: 1px solid #8b8b8b;
   border-radius: 50%;
   font-size: 1.8rem;
+}
+
+
+/* order css */
+
+.order {
+  text-align: center;
+  visibility: hidden;
+}
+
+.order-title {
+  font-size: 1.5rem;
+}
+
+.total, 
+.order-details,
+.order-header {
+  display: flex;
+  align-items: center;
+}
+
+.order-details {
+  margin: 10px 0;
+}
+
+
+.qp-header-wrapper,
+.item-qp-wrapper,
+.price-header,
+.item-price,
+.total-amount {
+  margin: auto 0 auto auto;
+}
+
+.qty-header {
+  margin-right: 90px;
+}
+
+.item-qty {
+  margin-right: 100px;
+}
+
+.remove {
+  color: #bbbbbb;
+  font-size: 1rem;
+  margin-left: 10px;
+  cursor: pointer;
+  vertical-align: super;
+}
+
+.submit-order {
+  color: #ffffff;
+  padding: 12px 20px;
+  background-color: #16DB99;
+  margin-top: 50px;
+  border-radius: 2px;
+  font-size: 0.9rem;
+  font-family: sans-serif;
+  font-weight: bold;
+  cursor: pointer;
 }
