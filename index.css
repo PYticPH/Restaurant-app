@@ -90,6 +90,7 @@ h2 {
   border: 1px solid #8b8b8b;
   border-radius: 50%;
   font-size: 1.8rem;
+  cursor: pointer;
 }
 
 
@@ -113,6 +114,10 @@ h2 {
 
 .order-details {
   margin: 10px 0;
+}
+
+hr {
+  border: 1px solid #393333;
 }
 
 
@@ -147,7 +152,64 @@ h2 {
   margin-top: 50px;
   border-radius: 2px;
   font-size: 0.9rem;
-  font-family: sans-serif;
-  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 700;
   cursor: pointer;
+}
+
+.modal {
+  background-color: #ffffff;
+  width: 500px;
+  height: 480px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  padding: 20px;
+  z-index: 10000;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.modal > h2 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 700;
+  margin: 30px  0 50px;
+  font-size: 1.6rem;
+}
+
+.inactive {
+  background: linear-gradient(180deg, #ffffff, #bebebe , #ffffff);
+}
+
+input {
+  display: block;
+  margin: 25px 0;
+  padding: 20px;
+  width: 91%;
+  font-size: 1.2rem;
+  font-weight: 400;
+  border: 2px solid #a5a4a4;
+  outline: 0;
+  border-radius: 5px;
+}
+
+input:focus {
+  border: 2px solid #16DB99;
+}
+
+.pay-btn {
+  width: 100%;
+  padding: 20px;
+  font-weight: 700;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.25rem;
+  color: #ffffff;
+  border: none;
+  background-color: #16DB99;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
 }
