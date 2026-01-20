@@ -6,17 +6,23 @@ let customerOrder = []
 
 main.addEventListener('click', (e) => {
 
-    if (e.target.name)
-        addItem(e.target.name)
+    if (e.target.dataset.itemId)
+        addItem(e.target.dataset.itemId)
 
-    if (e.target.id)
-        removeItem(e.target.id)
+    if (e.target.dataset.removeItemId)
+        removeItem(e.target.dataset.removeItemId)
+
+    if (e.target.id === 'submit-order')
+        submitOrder()
+
+    if (e.target.id === 'pay-btn')
+        makePayment(e)
 })
 
 
 function render() {
     const menuItems = menuArray
-        .map(({ name, ingredients, price, emoji }) =>
+        .map(({ name, ingredients, id, price, emoji }) =>
             `
             <section class="menu-item">
                 <span class="menu-item-image">${emoji}</span>
@@ -28,7 +34,7 @@ function render() {
                 <button 
                     type="button"
                     class="add-item"
-                    name="${name}">+</button>
+                    data-item-id="${id}">+</button>
             </section>
         `
         ).join('')
@@ -64,22 +70,25 @@ function renderOrder() {
             </div>
             <div 
                 class="submit-order" 
-                id="submit-order">Complete order</div>
+                id="submit-order">Complete order
+            </div>
         </section>
     `
     main.insertAdjacentHTML('beforeend', orderSection)
 }
 
-function addItem(item) {
+function addItem(id) {
+
+    const itemId = Number(id)
 
     const itemExistInOrder = customerOrder
-        .some(order => order.name === item)
+        .some(order => order.id === itemId)
 
     if (itemExistInOrder) {
 
         customerOrder = customerOrder.map(order =>
 
-            order.name === item ?
+            order.id === itemId ?
                 { ...order, quantity: order.quantity + 1 } :
                 order
         )
@@ -87,7 +96,7 @@ function addItem(item) {
     else {
 
         const newOrder = menuArray
-            .filter(menu => menu.name === item)[0]
+            .filter(menu => menu.id === itemId)[0]
 
         customerOrder.push(
             {
@@ -113,7 +122,11 @@ function renderItem() {
             `
                 <div class="order-details">
                     <span class="item-name">
-                        ${name}<span class="remove" id="remove-${id}">remove</span>
+                        ${name}
+                        <span 
+                            class="remove" 
+                            id="${name}"
+                            data-remove-item-id="${id}">remove</span>
                     </span>
 
                     <div class="item-qp-wrapper">
@@ -133,15 +146,68 @@ function renderItem() {
     document.getElementById('total-amount').innerText = `$${total}`
 }
 
-function removeItem(item) {
+function removeItem(id) {
+
+    const itemId = Number(id)
 
     customerOrder = customerOrder
-        .filter(order => `remove-${order.id}` !== item)
+        .filter(order => order.id !== itemId)
 
     if (!customerOrder.length)
         document.getElementById('order').style.visibility = 'hidden';
     else
         renderItem()
+}
+
+function submitOrder() {
+
+    const totalAmount = document
+        .getElementById('total-amount')
+        .innerText.split('').splice(1).join('')
+    
+    const paymentForm = 
+    `  <div class="modal">
+            <h2>Enter card details</h2>
+            <form id="form">
+                <input 
+                    id="username"
+                    type="text" 
+                    placeholder="Enter your username"
+                    name="username" required>
+                <input 
+                    id="card-number"
+                    type="text" 
+                    placeholder="Enter card number"
+                    name="cardnumber" required>
+                <input
+                    id="cvv" 
+                    type="text"
+                    placeholder="Enter CVV"
+                    name="cvv" required>
+                <input
+                    type="hidden" 
+                    id="amount"
+                    name="amount"
+                    value="${totalAmount}" readonly>
+                <button 
+                    class="pay-btn"
+                    id="pay-btn"
+                    type="submit">Pay</button>
+            </form>
+        </div>
+    `
+
+    document.querySelectorAll('.add-item')
+        .forEach(btn => btn.disabled = true)
+
+    main.classList.add('inactive')
+
+    main.innerHTML += paymentForm
+}
+
+function makePayment(event) {
+    event.preventDefault()
+
 }
 
 render()
