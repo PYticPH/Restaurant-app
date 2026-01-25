@@ -38,7 +38,7 @@ header p {
   margin: 0;
 }
 
-.menu-item {
+.menu-items {
   display: flex;
   align-items: center;
   border-bottom: 1px solid #d2d2d2;
@@ -49,14 +49,14 @@ header p {
   margin-left: 20px;
 }
 
-.menu-item h2,
-.menu-item p {
+.menu-items h2,
+.menu-items p {
   margin: 5px 0;
   font-weight: 300;
 }
 
 
-.menu-item-image {
+.menu-item-img {
   font-size: 4rem;
 }
 
@@ -68,7 +68,7 @@ h2 {
   font-size: 1.8rem;
 }
 
-.item-ingredient {
+.menu-item-ingredient {
   color: #8b8b8b;
   font-size: 1rem;
 }
@@ -78,7 +78,7 @@ h2 {
   font-size: 1.8rem;
 }
 
-.item-price, .total {
+.menu-item-price, .total-order {
   font-size: 1.2rem;
 }
 
@@ -96,17 +96,16 @@ h2 {
 
 /* order css */
 
-.order {
+.customer-order-container {
   text-align: center;
-  visibility: hidden;
 }
 
-.order-title {
+p.title {
   font-size: 1.5rem;
 }
 
-.total, 
-.order-details,
+.total-order,
+.order-details, 
 .order-header {
   display: flex;
   align-items: center;
@@ -125,7 +124,7 @@ hr {
 .item-qp-wrapper,
 .price-header,
 .item-price,
-.total-amount {
+.total{
   margin: auto 0 auto auto;
 }
 
@@ -137,7 +136,7 @@ hr {
   margin-right: 100px;
 }
 
-.remove {
+.remove-item {
   color: #bbbbbb;
   font-size: 1rem;
   margin-left: 10px;
@@ -200,7 +199,7 @@ input:focus {
   border: 2px solid #16DB99;
 }
 
-.pay-btn {
+.pay-btn, .submit-order {
   width: 100%;
   padding: 20px;
   font-weight: 700;
