@@ -156,7 +156,7 @@ hr {
   cursor: pointer;
 }
 
-.modal {
+.form-modal {
   background-color: #ffffff;
   width: 500px;
   height: 480px;
@@ -172,7 +172,7 @@ hr {
   border-radius: 4px;
 }
 
-.modal > h2 {
+.form-modal > h2 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 700;
   margin: 30px  0 50px;
@@ -211,4 +211,13 @@ input:focus {
   border-radius: 4px;
   cursor: pointer;
   margin-top: 20px;
+}
+
+.success {
+  background-color: #ecfdf5;
+  padding: 10px;
+  margin-top: 40px;
+  font-size: 1.5rem;
+  color: #065F46;
+  text-align: center;
 }
