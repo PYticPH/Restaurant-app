@@ -158,12 +158,13 @@ function removeItem(id) {
 
     const itemId = Number(id)
 
+    customerOrderData = customerOrderData
+        .filter(order => order.id !== itemId)
+
     if (!customerOrderData.length) {
-        customerOrderSection.innerHTML = '';
+        document.getElementById('customer-order').innerHTML = '';
     }
     else {
-        customerOrderData = customerOrderData
-            .filter(order => order.id !== itemId)
         renderItem()
     }
 }
