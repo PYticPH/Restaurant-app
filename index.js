@@ -24,9 +24,9 @@ function renderMenu() {
     const menu = menuArray
         .map(({ name, ingredients, id, price, emoji }) =>
             `
-            <div class="menu-items">
+            <div class="menu-items" aria-label="Menu items">
                 <span class="menu-item-img">${emoji}</span>
-                <span class="menu-item-details">
+                <span class="menu-item-details" aria-label="${name}">
                     <h2>${name}</h2>
                     <p class="menu-item-ingredient">${ingredients.join(", ")}</p>
                     <p class="menu-item-price">$${price}</p>
@@ -34,7 +34,8 @@ function renderMenu() {
                 <button 
                     type="button"
                     class="add-item"
-                    data-item-id="${id}">+
+                    data-item-id="${id}"
+                    aria-label="Add ${name}">+
                 </button>
             </div>
         `
@@ -87,20 +88,26 @@ function renderItem() {
     const itemHTML = customerOrderData.map(
         ({ name, quantity, price, id }) =>
             `
-                <div class="order-details">
+                <div class="order-details" aria-label="${name}">
                     <span class="item-name">
                         ${name}
                         <span 
                             class="remove-item" 
                             id="${name}"
-                            data-remove-item-id="${id}">remove</span>
+                            aria-label="Remove ${name}"
+                            data-remove-item-id="${id}">remove
+                        </span>
                     </span>
 
                     <div class="item-qp-wrapper">
-                        <span class="item-qty">
+                        <span 
+                            class="item-qty"
+                            aria-live="polite">
                             ${quantity}
                         </span>
-                        <span class="item-price">
+                        <span 
+                            class="item-price"
+                            aria-label="$${price}">
                             $${price}
                         </span>
                     </div>
@@ -124,12 +131,15 @@ function renderItem() {
             </div>
             <hr class="separator">
             <div class="total-order">
-                <span class="total-text">
+                <span 
+                    class="total-text"
+                    aria-label="total price">
                     Total price:
                 </span>
                 <span 
                     class="total"
-                    id="total">
+                    id="total"
+                    aria-live="polite">
                     $${total}
                 </span>
             </div>
@@ -173,6 +183,7 @@ function submitOrder() {
                     type="text"
                     placeholder="Enter your username"
                     name="username"
+                    aria-label="Enter your username"
                     required
                 />
                 <input
@@ -180,6 +191,7 @@ function submitOrder() {
                     type="text"
                     placeholder="Enter card number"
                     name="cardnumber"
+                    aria-label="Enter your card number"
                     required
                 />
                 <input
@@ -187,6 +199,7 @@ function submitOrder() {
                     type="text"
                     placeholder="Enter CVV"
                     name="cvv"
+                    aria-label="Enter your card CVV"
                     required
                 />
                 <input
