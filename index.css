@@ -199,18 +199,27 @@ input:focus {
   border: 2px solid #16DB99;
 }
 
+.pay-btn {
+  padding: 20px;
+  margin-top: 20px;
+  font-size: 1.25rem;
+}
+
 .pay-btn, .submit-order {
   width: 100%;
-  padding: 20px;
   font-weight: 700;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 1.25rem;
   color: #ffffff;
   border: none;
   background-color: #16DB99;
   border-radius: 4px;
   cursor: pointer;
-  margin-top: 20px;
+}
+
+.submit-order {
+    padding: 15px;
+    margin-top: 40px;
+    font-size: 1rem;
 }
 
 .success {
@@ -220,4 +229,8 @@ input:focus {
   font-size: 1.5rem;
   color: #065F46;
   text-align: center;
+}
+
+.customer-order {
+  height: 340px;
 }
