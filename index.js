@@ -40,7 +40,7 @@ function renderMenu() {
         `
         ).join('')
 
-    document.getElementById('menu').innerHTML += menu;
+    document.getElementById('menu').innerHTML = menu;
 
 }
 
@@ -164,9 +164,8 @@ function submitOrder() {
         .getElementById('total')
         .innerText.split('').splice(1).join('')
 
-    const paymentForm =
-        ` 
-        <div class="modal" id="payment-modal">
+    const paymentFormHTML =
+        `<div class="form-modal">
             <h2>Enter card details</h2>
             <form id="paymentForm">
                 <input
@@ -202,7 +201,7 @@ function submitOrder() {
         </div>
     `
 
-    document.body.innerHTML += paymentForm
+    document.getElementById('payment-modal').innerHTML = paymentFormHTML
     document.querySelectorAll('.add-item').forEach(btn => btn.disabled = true)
     document.getElementById('submit-order').disabled = true
     document.getElementById('main').classList.add('inactive')
@@ -214,8 +213,6 @@ function makePayment() {
     const username = formData.get('username')
     const cardNum = formData.get('cardnumber')
     const cvv = formData.get('cvv')
-
-    console.log(username, cardNum, cvv)
 
     if (username.length < 2 || !cardNum || !cvv)
         return
@@ -229,7 +226,7 @@ function makePayment() {
             </div>
         `
 
-    document.getElementById('payment-modal').style.visibility = 'hidden'
+    document.getElementById('payment-modal').innerHTML = ""
 
     resetOrder()
 
