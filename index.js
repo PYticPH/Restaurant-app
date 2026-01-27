@@ -2,6 +2,8 @@ import { menuArray } from './data.js'
 
 let customerOrderData = []
 
+
+//Event listener
 document.addEventListener('click', (e) => {
 
     if (e.target.dataset.itemId) {
@@ -19,7 +21,7 @@ document.addEventListener('click', (e) => {
     }
 })
 
-
+//Render resturant menu
 function renderMenu() {
     const menu = menuArray
         .map(({ name, ingredients, id, price, emoji }) =>
@@ -45,41 +47,8 @@ function renderMenu() {
 
 }
 
-function addItem(id) {
 
-    const itemId = Number(id)
-
-    const itemExistInOrder = customerOrderData
-        .some(order => order.id === itemId)
-
-    if (itemExistInOrder) {
-
-        customerOrderData = customerOrderData.map(order =>
-
-            order.id === itemId ?
-                { ...order, quantity: order.quantity + 1 } :
-                order
-        )
-    }
-    else {
-
-        const newOrder = menuArray
-            .filter(menu => menu.id === itemId)[0]
-
-        customerOrderData.push(
-            {
-                id: newOrder.id,
-                name: newOrder.name,
-                quantity: 1,
-                price: newOrder.price
-            }
-        )
-    }
-
-    renderItem()
-
-}
-
+//Render added items
 function renderItem() {
 
     const total = customerOrderData
@@ -154,6 +123,45 @@ function renderItem() {
 
 }
 
+//Add item to order list
+function addItem(id) {
+
+    const itemId = Number(id)
+
+    const itemExistInOrder = customerOrderData
+        .some(order => order.id === itemId)
+
+    if (itemExistInOrder) {
+
+        customerOrderData = customerOrderData.map(order =>
+
+            order.id === itemId ?
+                { ...order, quantity: order.quantity + 1 } :
+                order
+        )
+    }
+    else {
+
+        const newOrder = menuArray
+            .filter(menu => menu.id === itemId)[0]
+
+        customerOrderData.push(
+            {
+                id: newOrder.id,
+                name: newOrder.name,
+                quantity: 1,
+                price: newOrder.price
+            }
+        )
+    }
+
+    renderItem()
+
+}
+
+
+
+//Remove order list item
 function removeItem(id) {
 
     const itemId = Number(id)
@@ -169,6 +177,7 @@ function removeItem(id) {
     }
 }
 
+//Submit order
 function submitOrder() {
 
     const totalOrderValue = document
@@ -221,6 +230,7 @@ function submitOrder() {
     document.getElementById('main').classList.add('inactive')
 }
 
+//Make order payment
 function makePayment() {
 
     const formData = new FormData(document.getElementById('paymentForm'))
@@ -248,7 +258,7 @@ function makePayment() {
 
 }
 
-
+//Reset recent order
 function resetOrder() {
 
     customerOrderData = []

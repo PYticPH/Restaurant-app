@@ -1,3 +1,5 @@
+
+/*Layout*/
 body {
   background-color: #f5f5f5;
   margin: 0;
@@ -27,17 +29,6 @@ main {
   box-sizing: border-box;
 }
 
-h1 {
-  font-size: 2.4rem;
-  margin-bottom: 5px;
-  font-weight: 300;
-}
-
-header p {
-  font-size: 1.4rem;
-  margin: 0;
-}
-
 .menu-items {
   display: flex;
   align-items: center;
@@ -47,39 +38,6 @@ header p {
 
 .menu-item-details {
   margin-left: 20px;
-}
-
-.menu-items h2,
-.menu-items p {
-  margin: 5px 0;
-  font-weight: 300;
-}
-
-
-.menu-item-img {
-  font-size: 4rem;
-}
-
-.add-item {
-  margin: auto 0 auto auto;
-}
-
-h2 {
-  font-size: 1.8rem;
-}
-
-.menu-item-ingredient {
-  color: #8b8b8b;
-  font-size: 1rem;
-}
-
-
-.item-name {
-  font-size: 1.8rem;
-}
-
-.menu-item-price, .total-order {
-  font-size: 1.2rem;
 }
 
 .add-item {
@@ -93,15 +51,16 @@ h2 {
   cursor: pointer;
 }
 
-
-/* order css */
-
-.customer-order-container {
-  text-align: center;
-}
-
-p.title {
-  font-size: 1.5rem;
+input {
+  display: block;
+  margin: 25px 0;
+  padding: 20px;
+  width: 91%;
+  font-size: 1.2rem;
+  font-weight: 400;
+  border: 2px solid #a5a4a4;
+  outline: 0;
+  border-radius: 5px;
 }
 
 .total-order,
@@ -119,6 +78,50 @@ hr {
   border: 1px solid #393333;
 }
 
+.inactive {
+  background: linear-gradient(180deg, #ffffff, #bebebe , #ffffff);
+}
+
+
+input:focus {
+  border: 2px solid #16DB99;
+}
+
+.pay-btn {
+  padding: 20px;
+  margin-top: 20px;
+  font-size: 1.25rem;
+}
+
+.pay-btn, .submit-order {
+  width: 100%;
+  font-weight: 700;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #ffffff;
+  border: none;
+  background-color: #16DB99;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-order {
+    padding: 15px;
+    margin-top: 40px;
+    font-size: 1rem;
+}
+
+.success {
+  background-color: #ecfdf5;
+  padding: 10px;
+  margin-top: 40px;
+  font-size: 1.5rem;
+  color: #065F46;
+  text-align: center;
+}
+
+.customer-order {
+  height: 340px;
+}
 
 .qp-header-wrapper,
 .item-qp-wrapper,
@@ -172,65 +175,59 @@ hr {
   border-radius: 4px;
 }
 
+.add-item {
+  margin: auto 0 auto auto;
+}
+
+
+/* Typography */
+
+h1 {
+  font-size: 2.4rem;
+  margin-bottom: 5px;
+  font-weight: 300;
+}
+
+header p {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.menu-items h2,
+.menu-items p {
+  margin: 5px 0;
+  font-weight: 300;
+}
+
+.menu-item-img {
+  font-size: 4rem;
+}
+
+
+h2,
+.item-name  {
+  font-size: 1.8rem;
+}
+
+.menu-item-ingredient {
+  color: #8b8b8b;
+  font-size: 1rem;
+}
+
+.menu-item-price, .total-order {
+  font-size: 1.2rem;
+}
+
+.customer-order-container {
+  text-align: center;
+}
+
+p.title, .form-modal > h2 {
+  font-size: 1.5rem;
+}
+
 .form-modal > h2 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 700;
   margin: 30px  0 50px;
-  font-size: 1.6rem;
-}
-
-.inactive {
-  background: linear-gradient(180deg, #ffffff, #bebebe , #ffffff);
-}
-
-input {
-  display: block;
-  margin: 25px 0;
-  padding: 20px;
-  width: 91%;
-  font-size: 1.2rem;
-  font-weight: 400;
-  border: 2px solid #a5a4a4;
-  outline: 0;
-  border-radius: 5px;
-}
-
-input:focus {
-  border: 2px solid #16DB99;
-}
-
-.pay-btn {
-  padding: 20px;
-  margin-top: 20px;
-  font-size: 1.25rem;
-}
-
-.pay-btn, .submit-order {
-  width: 100%;
-  font-weight: 700;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: #ffffff;
-  border: none;
-  background-color: #16DB99;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.submit-order {
-    padding: 15px;
-    margin-top: 40px;
-    font-size: 1rem;
-}
-
-.success {
-  background-color: #ecfdf5;
-  padding: 10px;
-  margin-top: 40px;
-  font-size: 1.5rem;
-  color: #065F46;
-  text-align: center;
-}
-
-.customer-order {
-  height: 340px;
 }
